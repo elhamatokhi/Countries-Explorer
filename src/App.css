@@ -132,3 +132,10 @@ p {
   font-size: 0.9rem;
   color: var(--muted);
 }
+
+.date {
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+  padding-left: 35rem;
+}

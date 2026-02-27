@@ -8,14 +8,16 @@ Users can search for countries by name, filter them by region, and view key deta
 ![HomePageScreenshot](src/assets/home.png)
 ## 🚀 Features
 
-- Fetches real country data from a public API
-- Search countries by name
+- Fetches real country data from a public REST API
+- Search countries by name (debounced)
 - Filter countries by region
+- Sort countries by population (high → low)
+- Mark countries as favorites (saved in `localStorage`)
+- Filter to show only favorite countries
+- Clear all filters with one click
+- Displays current date
 - Loading and error handling
-- Retry button on failed requests
-- Clear filters functionality
-- Safe rendering for missing data
-- Responsive and user-friendly UI
+- Safe rendering for missing API fields
 
 ---
 

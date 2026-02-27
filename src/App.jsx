@@ -77,6 +77,7 @@ function App() {
       setLoading(false);
     }
   };
+
   /* ------------ Effect ------------ */
   useEffect(() => {
     fetchCountries();
@@ -103,10 +104,18 @@ const visibleCountries = showFavoritesOnly
     setShowFavoritesOnly(false);
   };
 
+const today = new Date().toLocaleDateString(undefined, {
+  weekday: "long",
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+});
+
   /* ------------ UI ------------ */
   return (
     <div className="main_container">
       <h1>🌍 Countries Explorer</h1>
+      <p className="date"> <b>Date: </b>{today}</p>
 
       {/* Controls */}
      <Filters
