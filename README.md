@@ -63,3 +63,14 @@ Users can search for countries by name, filter them by region, and view key deta
 
 ## 📸 Filtered result
 ![filteredResult](src/assets/result.png)
+
+
+## Author
+
+👤 **Elhama Tokhi**
+
+- GitHub:[@elhamatokhi](https://github.com/elhamatokhi)
+
+## License
+
+This project is open source and available under the MIT License.
