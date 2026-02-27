@@ -1,6 +1,6 @@
 import { useState , useEffect} from "react";
 
-const API_ALL = "https://restcountries.com/v3.1/all"
+const API_ALL = "https://restcountries.com/v3.1/all?fields=name,flags,region,population,cca3"
 const API_NAME = "https://restcountries.com/v3.1/name/"
 const API_REGION = "https://restcountries.com/v3.1/region/"
 
@@ -18,14 +18,21 @@ function App() {
         setLoading(true) // Set loading to true
         setError(null) // Clear previous error
 
-        let url = API_ALL
+        let url;
 
         // Decide endpoint based on filters
-        if(search.length >= 2){
-          url=`${API_NAME}${search}`
-        } else if (region !== "all") {
-          url = `${API_REGION}${region}`;
-        }
+      // 1️⃣ Search has highest priority
+      if (search.trim().length >= 2) {
+        url = `${API_NAME}${search.trim()}`;
+
+      // 2️⃣ Region filter
+      } else if (region !== "all") {
+        url = `${API_REGION}${region}`;
+
+      // 3️⃣ ALL (explicit fallback)
+      } else {
+        url = API_ALL;
+      }
 
         try {
             const res = await fetch(url)
@@ -59,7 +66,6 @@ function App() {
        <div className="search_input">
             <input 
             type="text"
-            label={"Search"}
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Search country ..."
@@ -112,7 +118,8 @@ function App() {
        {/* Countries List */}
        <div className="countries_list">
         {countries.map((country) => (
-          <div className="key"
+          <div
+          className="country_card"
           key={country.cca3}
           >
             <img src={country.flags?.png} alt={country.name?.common} />
