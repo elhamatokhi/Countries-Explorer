@@ -108,15 +108,6 @@ function App() {
         {!loading && !error && countries.length === 0 &&(
           <p>No results found.</p>
         )}
-
-        {/* If error occurs and not loading => display error */}
-        {!loading && error && (
-        <div className="errorBox">
-            <p className="errorTitle">Error</p>
-            <p className="errorText">{error}</p>
-            <p className="hint">Tip: disconnect from internet and change the URL...</p>
-        </div>
-        )}
       
        {/* Countries List */}
        <div className="countries_list">
@@ -126,7 +117,7 @@ function App() {
           >
             <img src={country.flags?.png} alt={country.name?.common} />
             <h3>{country.name?.common}</h3>
-            <p>Population: {country.population?.toLocalString()}</p>
+            <p>Population: {country.population?.toLocaleString()}</p>
           </div>
         ))}
        </div>
