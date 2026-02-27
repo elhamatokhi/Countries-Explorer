@@ -5,7 +5,7 @@ A React application that allows users to explore countries from around the world
 Users can search for countries by name, filter them by region, and view key details such as population and flag.
 
 ---
-
+![HomePageScreenshot](src/assets/home.png)
 ## 🚀 Features
 
 - Fetches real country data from a public API
@@ -59,4 +59,5 @@ Users can search for countries by name, filter them by region, and view key deta
    ```bash
    http://localhost:5173
 
-## 📸 Screenshots
+## 📸 Filtered result
+![filteredResult](src/assets/result.png)
