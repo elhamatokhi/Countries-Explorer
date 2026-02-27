@@ -1,6 +1,8 @@
 import { useState , useEffect} from "react";
+import './App.css'
+const FIELDS = "name,flags,region,population,cca3";
 
-const API_ALL = "https://restcountries.com/v3.1/all?fields=name,flags,region,population,cca3"
+const API_ALL = `https://restcountries.com/v3.1/all?fields=${FIELDS}`;
 const API_NAME = "https://restcountries.com/v3.1/name/"
 const API_REGION = "https://restcountries.com/v3.1/region/"
 
@@ -23,11 +25,11 @@ function App() {
         // Decide endpoint based on filters
       // 1️⃣ Search has highest priority
       if (search.trim().length >= 2) {
-        url = `${API_NAME}${search.trim()}`;
+        url = `${API_NAME}${search.trim()}?fields=${FIELDS}`;
 
       // 2️⃣ Region filter
       } else if (region !== "all") {
-        url = `${API_REGION}${region}`;
+        url = `${API_REGION}${region}?fields=${FIELDS}`;
 
       // 3️⃣ ALL (explicit fallback)
       } else {

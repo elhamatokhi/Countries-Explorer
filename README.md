@@ -46,3 +46,17 @@ Users can search for countries by name, filter them by region, and view key deta
 1. Clone the repository:
    ```bash
    git clone <your-github-repo-url>
+2. Navigate into the project folder:
+   ```bash
+    cd countries-explorer
+3. Install dependencies:
+   ```bash
+    npm install
+4. Start the development server:
+   ```bash
+   npm run dev
+5. Open your browser and visit:
+   ```bash
+   http://localhost:5173
+
+## 📸 Screenshots
