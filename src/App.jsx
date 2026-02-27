@@ -10,10 +10,42 @@ function App() {
    const [countries, setCountries] = useState([])
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(null)
-    const [region, setRegion] = useState("all")
     const [search, setSearch] = useState(" ")
+    const [region, setRegion] = useState("all")
 
+// Fetch logic
+    useEffect(()=>{
+        setLoading(true) // Set loading to true
+        setError(null) // Clear previous error
 
+        let url = API_ALL
+
+        // Decide endpoint based on filters
+        if(search.length >= 2){
+          url=`${API_NAME}${search}`
+        } else if (region !== "all") {
+          url = `${API_REGION}${region}`;
+        }
+        
+        try {
+            
+        } catch (error) {
+            setError(error.message || "Something went wrong.")
+        } finally{
+            setLoading(false)
+        }
+    },[search, region])
+
+    {/* Error handling - Show a paragaph if loading */}
+        {loading && <p>Loading countries...</p>}
+        {/* If error occurs and not loading => display error */}
+        {!loading && error && (
+        <div className="errorBox">
+            <p className="errorTitle">Error</p>
+            <p className="errorText">{error}</p>
+            <p className="hint">Tip: disconnect from internet and change the URL...</p>
+        </div>
+        )}
   return (
     <>
      
