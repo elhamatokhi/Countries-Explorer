@@ -1,5 +1,8 @@
-import { useState } from "react";
-import { useEffect } from "react";
+import { useState , useEffect} from "react";
+
+const API_ALL = "https://restcountries.com/v3.1/all"
+const API_NAME = "https://restcountries.com/v3.1/name/"
+const API_REGION = "https://restcountries.com/v3.1/region/"
 
 export default function CountriesExplorer(){
     const [countries, setCountries] = useState([])
@@ -21,7 +24,16 @@ export default function CountriesExplorer(){
         }
     },[search, region])
 
-
+    {/* Error handling - Show a paragaph if loading */}
+        {loading && <p>Loading countries...</p>}
+        {/* If error occurs and not loading => display error */}
+        {!loading && error && (
+        <div className="errorBox">
+            <p className="errorTitle">Error</p>
+            <p className="errorText">{error}</p>
+            <p className="hint">Tip: disconnect from internet and change the URL...</p>
+        </div>
+        )}
     return (
         <div>
             <div className="search_input">
@@ -32,6 +44,16 @@ export default function CountriesExplorer(){
                 placeholder="Enter country name"
                 className="input"
                 />
+            </div>
+
+            <div className="field">
+            <label className="label">Select Region</label>
+            <select 
+                value={value}
+                onChange={(e)=>onChange(e.target.value)}
+                className="input">
+                {options.map((opt)=><option key={opt} value={opt}>{opt}</option>)} 
+            </select>
             </div>
         </div>
     )

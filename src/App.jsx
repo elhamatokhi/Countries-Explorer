@@ -1,10 +1,18 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState , useEffect} from "react";
+
+const API_ALL = "https://restcountries.com/v3.1/all"
+const API_NAME = "https://restcountries.com/v3.1/name/"
+const API_REGION = "https://restcountries.com/v3.1/region/"
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  // States
+   const [countries, setCountries] = useState([])
+    const [loading, setLoading] = useState(false)
+    const [error, setError] = useState(null)
+    const [region, setRegion] = useState("all")
+    const [search, setSearch] = useState(" ")
+
 
   return (
     <>
