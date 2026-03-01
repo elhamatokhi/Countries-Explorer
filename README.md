@@ -47,7 +47,7 @@ Users can search for countries by name, filter them by region, and view key deta
 
 1. Clone the repository:
    ```bash
-   git clone <your-github-repo-url>
+   git clone https://github.com/elhamatokhi/Countries-Explorer.git
 2. Navigate into the project folder:
    ```bash
     cd countries-explorer
